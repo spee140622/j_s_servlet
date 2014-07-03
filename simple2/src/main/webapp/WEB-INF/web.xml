@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"
+         version="3.1">
+  <display-name>simple2</display-name>
+  
+  <context-param>
+    <param-name>globalParam</param-name>
+    <param-value>234@345.com</param-value>
+  </context-param>
+
+  <context-param>
+    <param-name>breed</param-name>
+    <param-value>test</param-value>
+  </context-param>
+
+  <listener>
+    <listener-class>org.w.test.listener.MyServletContextListener</listener-class>
+  </listener>
+
+  <servlet>
+    <servlet-name>life Cycle</servlet-name>
+    <servlet-class>org.w.test.servlet.LifeCycleServlet</servlet-class>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Init Param</servlet-name>
+    <servlet-class>org.w.test.servlet.InitParamServlet</servlet-class>
+    <init-param>
+      <param-name>adminEmail</param-name>
+      <param-value>123@123.com</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet>
+    <servlet-name>Listener Test</servlet-name>
+    <servlet-class>org.w.test.servlet.ListenerTestServlet</servlet-class>
+  </servlet>
+  
+  <servlet>
+    <servlet-name>MyTestInit</servlet-name>
+    <jsp-file>/testInit.jsp</jsp-file>
+    <init-param>
+      <param-name>email</param-name>
+      <param-value>testInit@jsp.com</param-value>
+    </init-param>
+  </servlet>
+
+  <servlet-mapping>
+    <servlet-name>life Cycle</servlet-name>
+    <url-pattern>/lifeCycle</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Init Param</servlet-name>
+    <url-pattern>/initParam</url-pattern>
+  </servlet-mapping>
+
+  <servlet-mapping>
+    <servlet-name>Listener Test</servlet-name>
+    <url-pattern>/listenerTest</url-pattern>
+  </servlet-mapping>
+  
+  <servlet-mapping>
+    <servlet-name>MyTestInit</servlet-name>
+    <url-pattern>/testInit.jsp</url-pattern>
+  </servlet-mapping>
+</web-app>
